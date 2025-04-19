@@ -1,11 +1,13 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Background3D from "../components/Background3D";
 
 const TermsOfService = () => {
   return (
     <div className="container">
       <Navbar />
+      <Background3D />
 
       <div
         className="glass-card"
