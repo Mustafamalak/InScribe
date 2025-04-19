@@ -5,12 +5,17 @@ const SmartEmail = () => {
   const [emailContent, setEmailContent] = useState("");
   const [category, setCategory] = useState("informative");
   const [isGenerating, setIsGenerating] = useState(false);
+  const [isTouched, setIsTouched] = useState(false);
+  const [shouldShake, setShouldShake] = useState(false);
   const [generatedEmail, setGeneratedEmail] = useState(null);
   const [error, setError] = useState(false);
 
   const generateEmail = () => {
     if (!emailContent.trim()) {
       setError(true);
+      setIsTouched(true);
+      setShouldShake(true);
+      setTimeout(() => setShouldShake(false), 500);
       return;
     }
 
@@ -106,6 +111,14 @@ const SmartEmail = () => {
     }, 1500);
   };
 
+  const handleBlur = () => {
+    setIsTouched(true);
+    if (!emailContent.trim()) {
+      setShouldShake(true);
+      setTimeout(() => setShouldShake(false), 500);
+    }
+  };
+
   return (
     <div className="glass-card" style={{ padding: "30px" }}>
       <h2 style={{ marginBottom: "20px" }}>Smart Email Assistant</h2>
@@ -135,20 +148,18 @@ const SmartEmail = () => {
                 setError(false);
               }
             }}
+            onBlur={handleBlur}
             placeholder="Enter customer message to generate a response..."
+            className={`${
+              isTouched && !emailContent.trim() ? "form-control-error" : ""
+            } ${shouldShake ? "shake" : ""}`}
             style={{
               height: "120px",
               resize: "vertical",
-              border: error ? "2px solid #ff4444" : "1px solid #ccc",
-              animation: error ? "shake 0.5s" : "none",
             }}
           />
-          {error && (
-            <div
-              style={{ color: "#ff4444", fontSize: "0.8rem", marginTop: "5px" }}
-            >
-              This is a required field
-            </div>
+          {isTouched && !emailContent.trim() && (
+            <div className="error-text">This field is required</div>
           )}
         </div>
 

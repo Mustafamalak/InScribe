@@ -63,7 +63,6 @@ const Navbar = () => {
           {!isMobile && (
             <button
               className="btn btn-primary"
-              href="/signup"
               onClick={() => navigate("/signup")}
             >
               Get Started
@@ -142,7 +141,6 @@ const Navbar = () => {
             Smart Email
           </a>
           <button
-            href="/signup"
             className="btn btn-primary"
             style={{ marginTop: "0.5rem" }}
             onClick={() => navigate("/signup")}

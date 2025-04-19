@@ -336,25 +336,6 @@ input:checked + .toggle-label {
   background-color: #5A55FF;
 }
 
-
-/* Red error border */
-.input-error {
-  border: 1px solid red !important;
-}
-
-/* Shake animation */
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-4px); }
-  50% { transform: translateX(4px); }
-  75% { transform: translateX(-4px); }
-  100% { transform: translateX(0); }
-}
-
-.shake {
-  animation: shake 0.3s ease-in-out;
-}
-
 .text1{
   border: 1px solid red;
 }
@@ -365,6 +346,40 @@ input:checked + .toggle-label {
   align-items: center;
   margin-top: 70px;
   margin-bottom: 70px;
+}
+
+/* Form validation styles */
+.form-control-error {
+  border: 2px solid #ff4444 !important;
+  animation: shake 0.5s ease-in-out;
+}
+
+.error-text {
+  color: #ff4444;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+/* Update form group spacing */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Form input focus state */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(90, 85, 255, 0.2);
+}
+
+/* Error state focus */
+.form-control-error:focus {
+  border-color: #ff4444 !important;
+  box-shadow: 0 0 0 2px rgba(255, 68, 68, 0.2) !important;
 }
 
 

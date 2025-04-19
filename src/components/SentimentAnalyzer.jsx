@@ -109,9 +109,7 @@ const SentimentAnalyzer = () => {
           }}
         />
         {isTouched && !text.trim() && (
-          <p style={{ color: "red", fontSize: "0.8rem", marginTop: "5px" }}>
-            *This field is required*
-          </p>
+          <div className="error-text">This field is required</div>
         )}
 
         <button
