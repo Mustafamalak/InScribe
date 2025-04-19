@@ -140,6 +140,7 @@ const Navbar = () => {
           <a href="/email" style={navLinkStyle}>
             Smart Email
           </a>
+          <ThemeToggle/>
           <button
             className="btn btn-primary"
             style={{ marginTop: "0.5rem" }}
