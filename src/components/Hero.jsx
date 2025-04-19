@@ -140,6 +140,7 @@ const Hero = () => {
           marginLeft: "90px",
           padding: "40px 20px",
           position: "relative",
+          minHeight: "420px",
         }}
       >
         {/* 3D Element */}

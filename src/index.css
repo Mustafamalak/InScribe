@@ -336,3 +336,35 @@ input:checked + .toggle-label {
   background-color: #5A55FF;
 }
 
+
+/* Red error border */
+.input-error {
+  border: 1px solid red !important;
+}
+
+/* Shake animation */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.3s ease-in-out;
+}
+
+.text1{
+  border: 1px solid red;
+}
+.UndNavContainer{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+

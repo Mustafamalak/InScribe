@@ -5,9 +5,16 @@ const SentimentAnalyzer = () => {
   const [sentiment, setSentiment] = useState(null);
   const [score, setScore] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [isTouched, setIsTouched] = useState(false);
+  const [shouldShake, setShouldShake] = useState(false);
 
   const analyzeSentiment = () => {
-    if (!text.trim()) return;
+    if (!text.trim()) {
+      setIsTouched(true);
+      setShouldShake(true);
+      setTimeout(() => setShouldShake(false), 500);
+      return;
+    }
 
     setIsAnalyzing(true);
 
@@ -87,6 +94,8 @@ const SentimentAnalyzer = () => {
 
       <div>
         <textarea
+          className="text1"
+          onBlur={() => setIsTouched(true)}
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Enter text to analyze sentiment..."
@@ -97,6 +106,11 @@ const SentimentAnalyzer = () => {
             padding: "15px",
           }}
         />
+        {isTouched && !text.trim() && (
+          <p style={{ color: "red", fontSize: "0.8rem", marginTop: "5px" }}>
+            *This field is required*
+          </p>
+        )}
 
         <button
           className="btn btn-primary"

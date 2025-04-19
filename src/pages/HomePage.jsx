@@ -4,16 +4,18 @@ import Hero from "../components/Hero";
 import SentimentAnalyzer from "../components/SentimentAnalyzer";
 import SmartEmail from "../components/SmartEmail";
 import Footer from "../components/Footer";
+import UndNav from "../components/UndNavbar";
 
 const HomePage = () => {
   return (
     <div className="container">
       <Background3D />
       <Navbar />
+      <UndNav />
       <main>
         <Hero />
 
-        <div style={{ marginTop: "40px" }}>
+        <div style={{ marginTop: "87px", marginBottom: "80px" }}>
           <h2
             className="text-gradient"
             style={{ textAlign: "center", marginBottom: "30px" }}

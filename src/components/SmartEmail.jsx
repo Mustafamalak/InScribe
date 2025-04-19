@@ -6,11 +6,16 @@ const SmartEmail = () => {
   const [category, setCategory] = useState("informative");
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedEmail, setGeneratedEmail] = useState(null);
+  const [error, setError] = useState(false);
 
   const generateEmail = () => {
-    if (!emailContent.trim()) return;
+    if (!emailContent.trim()) {
+      setError(true);
+      return;
+    }
 
     setIsGenerating(true);
+    setError(false);
 
     // Simulate AI generation (would be replaced by API call)
     setTimeout(() => {
@@ -124,13 +129,27 @@ const SmartEmail = () => {
           </label>
           <textarea
             value={emailContent}
-            onChange={(e) => setEmailContent(e.target.value)}
+            onChange={(e) => {
+              setEmailContent(e.target.value);
+              if (error && e.target.value.trim()) {
+                setError(false);
+              }
+            }}
             placeholder="Enter customer message to generate a response..."
             style={{
               height: "120px",
               resize: "vertical",
+              border: error ? "2px solid #ff4444" : "1px solid #ccc",
+              animation: error ? "shake 0.5s" : "none",
             }}
           />
+          {error && (
+            <div
+              style={{ color: "#ff4444", fontSize: "0.8rem", marginTop: "5px" }}
+            >
+              This is a required field
+            </div>
+          )}
         </div>
 
         <div>
@@ -199,6 +218,28 @@ const SmartEmail = () => {
           </div>
         )}
       </div>
+
+      <style jsx>{`
+        @keyframes shake {
+          0%,
+          100% {
+            transform: translateX(0);
+          }
+          10%,
+          30%,
+          50%,
+          70%,
+          90% {
+            transform: translateX(-5px);
+          }
+          20%,
+          40%,
+          60%,
+          80% {
+            transform: translateX(5px);
+          }
+        }
+      `}</style>
     </div>
   );
 };
