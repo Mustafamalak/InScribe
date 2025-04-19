@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import ThemeToggle from "../components/ThemeToggle";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -34,7 +36,11 @@ const Navbar = () => {
           alignItems: "center",
         }}
       >
-        <img src="/src/assets/Logonew.png" alt="PsycheMail" style={{width:"120px" }}/>
+        <img
+          src="/src/assets/Logonew.png"
+          alt="PsycheMail"
+          style={{ width: "120px" }}
+        />
 
         <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
           {!isMobile && (

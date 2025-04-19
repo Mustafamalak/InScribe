@@ -94,7 +94,9 @@ const SentimentAnalyzer = () => {
 
       <div>
         <textarea
-          className="text1"
+          className={`${
+            isTouched && !text.trim() ? "form-control-error" : ""
+          } ${shouldShake ? "shake" : ""}`}
           onBlur={() => setIsTouched(true)}
           value={text}
           onChange={(e) => setText(e.target.value)}
