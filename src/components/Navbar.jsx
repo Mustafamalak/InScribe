@@ -34,14 +34,7 @@ const Navbar = () => {
           alignItems: "center",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <h1
-            className="text-gradient"
-            style={{ fontSize: "1.8rem", margin: 0 }}
-          >
-            InScribe AI
-          </h1>
-        </div>
+        <img src="/src/assets/Logonew.png" alt="PsycheMail" style={{width:"120px" }}/>
 
         <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
           {!isMobile && (
